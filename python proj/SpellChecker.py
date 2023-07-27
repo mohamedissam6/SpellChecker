@@ -2,8 +2,8 @@ from Trie import trie
 from datetime import datetime
 
 class spellchecker( object ):
-	#storing data in a trie after object creation by scanning file and place it an a list then store this list in a trie
-	#that property has a time complexty of O(N)
+	#storing data in a trie after object creation by scanning the file and placing it an a list then storing this list in a trie
+	#that property has a time complexity of O(N)
 	def __init__( self, PathOrName):	
 	
 		self.PathOrName=PathOrName
@@ -16,8 +16,8 @@ class spellchecker( object ):
 		while k<len(self.data) :
 			self.db.insert(self.data[k])
 			k+=1
-#that method returns '' if the key is in the trie and returns 4 nearst words if it is't in the trie
-#that method have complexty of O(1) and thats why i choose the trie data structior(no loops)
+#that method returns '' if the key is in the trie and returns 4 nearest words if it isn't in the trie
+#that method have complexity of O(1) and that's why i choose the trie data structure(no loops)
 	def suggestions(self,key):
 	
 		if self.db.search(key)== False :
@@ -27,9 +27,9 @@ class spellchecker( object ):
 		else :
 			return ''
 		
-#insert method takes a word and frist place it in the trie (that part have complexty of O(1)) then its overwrite the dectionary
-#for not loosing past data i made this function frist creats a txt file with the name if the date and backup then writing the data befor adding new words
-#that method has complexty of O(N) as it loops in the file to store the data 
+#insert method takes a word and first places it in the trie (that part has the complexity of O(1)) then it overwrites the dictionary
+#for not lose past data I made this function first create a Txt file with the name of the date and backup then write the data before adding new words
+#that method has the complexity of O(N) as it loops in the file to store the data 
 
 	def insert(self,word):
 		now =datetime.now()
@@ -48,11 +48,11 @@ class spellchecker( object ):
 			newdata.write(item+"\n")
 		newdata.close()
 		
-#this function recall the search fuction in the trie class to check availblty
+#this function recalls the search function in the trie class to check the availability
 	def search(self,key):
 		return self.db.search(key)
 
-#I lerned to make my clear and understandble so i don't need to add comments to it , but i write some comments as orderd
+#I learned to make my code clear and understandable so I don't need to add comments to it, but I wrote some comments as ordered
 #comments are bad smells in code
 
 
